@@ -1,0 +1,270 @@
+@extends('layouts.main')
+@section('title','Data Konten')
+@section('container')
+
+<!-- MAIN CONTENT -->
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+  <div class="d-flex flex-column flex-column-fluid">
+    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+      <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+        <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+          <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Data Konten</h1>
+        </div>
+      </div>
+    </div>
+    <div id="kt_app_content" class="app-content flex-column-fluid">
+      <div id="kt_app_content_container" class="app-container container-fluid">
+        <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+          <div class="col-xxl-6">
+            <div class="card card-flush h-md-100">
+              <div class="card-body d-flex flex-column justify-content-between bgi-no-repeat bgi-size-cover bgi-position-x-center pb-0">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                      <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Data Konten</h1>
+                      <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                        <li class="breadcrumb-item text-muted">
+                          <p class="text-muted text-hover-primary">Data Konten Kementerian Komunikasi dan Informatika</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="d-grid d-md-flex justify-content-md-end">
+                      <a href="konten/create" class="btn btn-sm fw-bold btn-primary me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-square" viewBox="0 0 16 16">
+                          <path d="M0 6a6 6 0 1 1 12 0A6 6 0 0 1 0 6z" />
+                          <path d="M12.93 5h1.57a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1.57a6.953 6.953 0 0 1-1-.22v1.79A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4h-1.79c.097.324.17.658.22 1z" />
+                        </svg>
+                        Data Baru</a>
+                      <a href="{{url('konten-histori')}}" class="btn btn-sm fw-bold btn-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                          <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                        </svg> </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion my-3" id="accordionPanelsStayOpenExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        <span class="me-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                            <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
+                          </svg>
+                        </span>
+                        Filter
+                      </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                      <div class="accordion-body">
+                        <form action="{{url('konten')}}" method="GET">
+                          <div class="row">
+                            <div class="col-4">
+                              <label for="year" class="fs-6 fw-semibold mb-2">Tahun</label>
+                              <select class="form-select" data-control="select2" data-hide-search="true" data-placeholder="Pilih Tahun" name="year" id="year">
+                                <option value="">All</option>
+                                @for ($i = date('Y'); $i >= 2010; $i--)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                              </select>
+                            </div>
+                            <div class="col-4">
+                              <label for="category" class="fs-6 fw-semibold mb-2">Kategori</label>
+                              <select class="form-select" data-control="select2" data-hide-search="true" data-placeholder="Pilih Kategori" name="category" id="kategori">
+                                <option value="">Select kategori</option>
+                                @foreach ($kategoris as $kategori)
+                                <option value="{{$kategori->id}}">{{$kategori->name}}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                            <div class="col-4">
+                              <label for="status" class="fs-6 fw-semibold mb-2">Status</label>
+                              <select class="form-select" data-control="select2" data-hide-search="true" data-placeholder="Pilih Status" name="status" id="status">
+                                <option value="">Select status</option>
+                                <option value="published">Published</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="draft">Draft</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row mt-3">
+                            <div class="col-6">
+                              <label for="from_date" class="fs-6 fw-semibold mb-2">Dari tanggal</label>
+                              <input type="date" name="from_date" id="from_date" class="form-control">
+                            </div>
+                            <div class="col-6">
+                              <label for="to_date" class="fs-6 fw-semibold mb-2">Sampai tanggal</label>
+                              <input type="date" name="to_date" id="to_date" class="form-control">
+                            </div>
+                          </div>
+                          <div class="mt-3">
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                            <button type="reset" class="btn btn-warning">Reset</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  @if(session()->has('success'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fa fa-check"></i> {{session('success')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                  </div>
+                  @elseif(session()->has('error'))
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-triangle"></i> {{session('error')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                  </div>
+                  @endif
+                  @if($errors->any())
+                  @foreach($errors->all() as $err)
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-triangle"></i> {{ $err }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                  </div>
+                  @endforeach
+                  @endif
+                  <div class="mt-3">
+                    <div class="row">
+                      <div class="col-6">
+                        <form>
+                          <div class="d-flex d-inline">
+                            <span class="fw-bold mt-4">Tampilkan</span>
+                            <div class="col-2 px-3">
+                              <input type="number" name="perPage" class="form-control mx-3" value="{{$perPage}}" onchange="this.form.submit()">
+                            </div>
+                            <span class="fw-bold mt-4 ms-6">entri</span>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="col-6 d-grid d-md-flex justify-content-md-end mb-3">
+                        <form class="form" action="/konten">
+                          <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="search" class="form-control float-right rounded-0" id="search" placeholder="Search" value="{{ request('search') }}">
+                            <div class="input-group-append">
+                              <button type="submit" class="btn btn-secondary rounded-0">
+                                <i class="fas fa-search"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <table class="table table-bordered table-striped">
+                      <thead class="fw-bold">
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col" class="col-4">
+                            <div class="row">
+                              <div class="col-6">Judul</div>
+                              <div class="col-6 d-grid d-md-flex justify-content-md-end">
+                                <a href="?sort={{ $sort == 'asc' ? 'desc' : 'asc' }}">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000000" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
+                                  </svg>
+                                </a>
+                              </div>
+                            </div>
+                          </th>
+                          <th scope="col">Kategori</th>
+                          <th scope="col">Dibuat</th>
+                          <th scope="col">Diterbitkan</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @forelse ($kontens as $konten)
+                        <tr>
+                          <td class="align-middle">{{$loop->iteration}}</td>
+                          <td class="align-middle">{{$konten->judul}}</td>
+                          <td class="align-middle">{{$konten->kategori->name}}</td>
+                          <td class="align-middle">{{$konten->createdDate()}}, {{$konten->createdTime()}} WIB</td>
+                          <td class="align-middle">{{$konten->formatted_published_at}}, {{$konten->publishedTime()}} WIB</td>
+                          <td class="align-middle">
+                            @if($konten->status == 'published')
+                            <p class="badge badge-success my-auto">Published</p>
+                            @elseif($konten->status == 'inactive')
+                            <p class="badge badge-danger my-auto">Inactive</p>
+                            @else
+                            <p class="badge badge-warning my-auto">Draft</p>
+                            @endif
+                          </td>
+                          <td>
+                            <a href="konten/{{$konten->id}}" class="btn btn-purple btn-sm" title="Detail" data-bs-toggle="tooltip">
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye icon-large" viewBox="0 0 16 16">
+                                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                </svg>
+                              </span>
+                            </a>
+                            <a href="konten/{{$konten->id}}/edit" class="btn btn-yellow btn-sm" title="Ubah" data-bs-toggle="tooltip">
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-pencil-fill icon-large" viewBox="0 0 16 16">
+                                  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                                </svg>
+                              </span>
+                            </a>
+                            <a href="#" class="btn btn-red btn-sm mt-1" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal" data-konten-id="{{ $konten->id }}"title="Hapus">
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3 icon-large" viewBox="0 0 16 16">
+                                  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                                </svg>
+                              </span>
+                            </a>
+                          </td>
+                        </tr>
+                        @empty
+                        <td colspan="7" class="text-center bg-danger">-- Data Tidak Ada --</td>
+                        @endforelse
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="mb-5">
+                  {{$kontens->appends(['perPage' => $perPage])->links('pagination::bootstrap-5')}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL HAPUS BARU -->
+
+    <div class="modal fade" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="confirm-delete-modal-label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirm-delete-modal-label">Hapus konten</h5>
+            <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+              <span class="svg-icon svg-icon-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                  <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="modal-body">
+            Apakah kamu yakin ingin menghapus konten ini ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <form action="{{ url('konten', '__konten_id') }}" method="POST" style="display: inline-block;">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Hapus</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
